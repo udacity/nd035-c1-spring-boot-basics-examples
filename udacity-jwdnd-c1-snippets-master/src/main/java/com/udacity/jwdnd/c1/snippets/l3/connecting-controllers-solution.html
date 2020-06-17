@@ -1,0 +1,12 @@
+
+<body>
+<form action="#" th:action="@{'/animal'}" th:object="${messageForm}" method="POST">
+    <label for="animalText">Enter an Animal: </label>
+    <input type="text" id="animalText" name="animalText" th:field="*{animalName}">
+    <label for="adjective">Enter an Adjective:</label>
+    <input type="text" id="adjective" name="adjective" th:field="*{adjective}">
+    <input type="submit">
+</form>
+<h1 th:unless="${#lists.size(greetings) > 5}" th:each="msg : ${greetings}" th:text="${msg}">Hello, homepage!</h1>
+<h1 th:if="${#lists.size(greetings) > 5}">I think that's enough!</h1>
+</body>
