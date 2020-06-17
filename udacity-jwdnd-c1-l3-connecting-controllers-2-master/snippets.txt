@@ -1,0 +1,137 @@
+1 HomeController.java:
+---------------------------
+@Controller
+public class HomeController {
+
+    @GetMapping("/home")
+    public String getHomePage(Model model) {
+        model.addAttribute("greetings", new String[] { "Hi", "Hello", "Goodbye"});
+        return "home";
+    }
+
+}
+---------------------------
+
+2 MessageListService.java:
+---------------------------
+@Service
+public class MessageListService {
+
+    private List<String> messages;
+
+    public MessageListService() {
+        this.messages = new ArrayList<>();
+    }
+
+    public void addMessage(String message) {
+        messages.add(message);
+    }
+
+    public List<String> getMessages() {
+        return new ArrayList<>(this.messages);
+    }
+}
+---------------------------
+
+2 HomeController.java:
+---------------------------
+@Controller
+public class HomeController {
+
+    private MessageListService messageListService;
+
+    public HomeController(MessageListService messageListService) {
+        this.messageListService = messageListService;
+    }
+
+    @GetMapping("/home")
+    public String getHomePage(Model model) {
+        model.addAttribute("greetings", this.messageListService.getMessages());
+        return "home";
+    }
+
+}
+---------------------------
+
+3 MessageForm.java:
+---------------------------
+public class MessageForm {
+    private String text;
+
+    public String getText() {
+        return text;
+    }
+
+    public void setText(String text) {
+        this.text = text;
+    }
+}
+---------------------------
+
+4 HomeController.java:
+---------------------------
+@Controller
+public class HomeController {
+
+    private MessageListService messageListService;
+
+    public HomeController(MessageListService messageListService) {
+        this.messageListService = messageListService;
+    }
+
+    @GetMapping("/home")
+    public String getHomePage(MessageForm newMessage, Model model) {
+        model.addAttribute("greetings", this.messageListService.getMessages());
+        return "home";
+    }
+
+}
+---------------------------
+
+5 HomeController.java:
+---------------------------
+@Controller
+public class HomeController {
+
+    private MessageListService messageListService;
+
+    public HomeController(MessageListService messageListService) {
+        this.messageListService = messageListService;
+    }
+
+    @GetMapping("/home")
+    public String getHomePage(@ModelAttribute MessageForm newMessage, Model model) {
+        model.addAttribute("greetings", this.messageListService.getMessages());
+        return "home";
+    }
+
+}
+---------------------------
+
+6 HomeController.java:
+---------------------------
+@Controller
+public class HomeController {
+
+    private MessageListService messageListService;
+
+    public HomeController(MessageListService messageListService) {
+        this.messageListService = messageListService;
+    }
+
+    @GetMapping("/home")
+    public String getHomePage(@ModelAttribute MessageForm newMessage, Model model) {
+        model.addAttribute("greetings", this.messageListService.getMessages());
+        return "home";
+    }
+
+    @PostMapping()
+    public String addMessage(MessageForm messageForm, Model model) {
+        messageListService.addMessage(messageForm.getText());
+        model.addAttribute("greetings", messageListService.getMessages());
+        messageForm.setText("");
+        return "home";
+    }
+
+}
+---------------------------
