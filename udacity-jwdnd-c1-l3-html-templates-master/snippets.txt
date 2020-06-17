@@ -1,0 +1,47 @@
+1 home.html:
+---------------------------
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Home</title>
+</head>
+<body>
+<h1 th:each="msg : ${greetings}" th:text="${msg}">Hello, homepage!</h1>
+</body>
+</html>
+---------------------------
+
+1 HomeController.java
+---------------------------
+@Controller
+public class HomeController {
+
+    @RequestMapping("/home")
+    public String getHomePage(Model model) {
+        model.addAttribute("greetings", new String[] { "Hi", "Hello", "Goodbye"});
+        return "home";
+    }
+
+}
+---------------------------
+
+2 home.html:
+---------------------------
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Home</title>
+</head>
+<body>
+<h1 th:each="msg : ${greetings}" th:text="${msg}" th:unless="${msg.contains('Goodbye')}">Hello, homepage!</h1>
+</body>
+</html>
+---------------------------
