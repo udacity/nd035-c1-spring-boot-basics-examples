@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Counter</title>
+</head>
+<body>
+<div>
+    <label>Current Count:</label>
+    <span id="count-display" th:text="${count}">0</span>
+</div>
+<div>
+    <form action="#" th:action="@{/counter}" method="POST">
+        <input id="increment-button" type="submit" value="Increment">
+    </form>
+</div>
+<div>
+    <form action="#" th:action="@{/counter/reset}" method="POST" th:object="${resetForm}">
+        <input id="reset-value-field" type="number" th:field="*{value}">
+        <input id="reset-button" type="submit" value="Reset">
+    </form>
+</div>
+</body>
+</html>
