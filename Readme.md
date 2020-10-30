@@ -40,5 +40,9 @@ Below is the mapping of folders in the current repository versus the classroom p
 
 
 ### Dependencies
-1. Java 14 or higher
-2. IntelliJ IDEA
+1. IntelliJ IDEA
+2. Java 14 or higher - Tthe current Java version in the `pom.xml` file is 14. However, you can upgrade to Java 15, as the soruce code does not uses any deprecated libraries/functions, by following the steps mentioned below:
+ * Update the Java version in the `pom.xml` file. It will automatically update the `maven-compiler-plugin`. 
+ * Update the Java version in IntelliJ IDEA &#8594; File &#8594; Project Structure...
+ * Update the Java version in the IntelliJ IDEA &#8594; Preferences...
+
