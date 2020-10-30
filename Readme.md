@@ -9,7 +9,7 @@ This repository contains the following for the
 The lesson and exercise numbers start from 0, just like it does in array-indexes. For example:
 1. The exercise solution directory named `udacity-jwdnd-c1-l1-final-review-solution-master` is associated with the **final-review** exercise present in course 2, lesson 2 in the classroom. 
 
-1. The exercise solution directory named `udacity-jwdnd-c1-l5-junit-and-selenium-master` is associated with the **junit-and-selenium** exercise present in course 2, lesson 6 in the classroom. 
+1. The exercise solution directory named `udacity-jwdnd-c1-l5-junit-and-selenium-master` is associated with the **junit-and-selenium** concept present in course 2, lesson 6 in the classroom. 
 
 1. The `udacity-jwdnd-c1-snippets-master` directory contains the code snippets demonstrated in the classroom. 
 
@@ -34,7 +34,7 @@ Below is the mapping of folders in the current repository versus the classroom p
 |Lesson 6|Solution: Final Review|[udacity-jwdnd-c1-l5-final-review-solution-master](https://github.com/udacity/nd035-c1-spring-boot-basics-examples/tree/master/udacity-jwdnd-c1-l5-final-review-solution-master)|
 |Lesson 6|JUnit and Selenium|[udacity-jwdnd-c1-l5-junit-and-selenium-master](https://github.com/udacity/nd035-c1-spring-boot-basics-examples/tree/master/udacity-jwdnd-c1-l5-junit-and-selenium-master)|
 |Lesson 6|JUnit in Situ|[udacity-jwdnd-c1-l5-junit-in-situ-master](https://github.com/udacity/nd035-c1-spring-boot-basics-examples/tree/master/udacity-jwdnd-c1-l5-junit-in-situ-master)|
-|Lesson 6|[Selenium/WebDriver|udacity-jwdnd-c1-l5-selenium-webdriver-master](https://github.com/udacity/nd035-c1-spring-boot-basics-examples/tree/master/udacity-jwdnd-c1-l5-selenium-webdriver-master)|
+|Lesson 6|[Selenium/WebDriver|[udacity-jwdnd-c1-l5-selenium-webdriver-master](https://github.com/udacity/nd035-c1-spring-boot-basics-examples/tree/master/udacity-jwdnd-c1-l5-selenium-webdriver-master)|
 |All lessons|Remaining demonstration videos |[udacity-jwdnd-c1-snippets-master](https://github.com/udacity/nd035-c1-spring-boot-basics-examples/tree/master/udacity-jwdnd-c1-snippets-master)|
 
 
