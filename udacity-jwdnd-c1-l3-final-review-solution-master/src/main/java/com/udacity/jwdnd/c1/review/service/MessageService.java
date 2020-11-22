@@ -48,6 +48,13 @@ public class MessageService {
                 newMessage.setMessage(chatForm.getMessageText().toLowerCase());
                 break;
         }
+        if (chatForm.getMessageVolume() <= 5){
+            newMessage.setMood("weakly");
+        }else if (chatForm.getMessageType().equals("Shout")){
+            newMessage.setMood("angrily");
+        }else{
+            newMessage.setMood("anxiously");
+        }
         this.chatMessages.add(newMessage);
     }
 

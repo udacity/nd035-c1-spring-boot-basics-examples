@@ -9,8 +9,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import java.util.List;
-
 @Controller
 @RequestMapping("/chat")
 public class ChatController {
@@ -38,6 +36,11 @@ public class ChatController {
     @ModelAttribute("allMessageTypes")
     public String[] allMessageTypes () {
         return new String[] { "Say", "Shout", "Whisper" };
+    }
+
+    @ModelAttribute("allMessageVolumes")
+    public Integer[] allMessageVolumes () {
+        return new Integer[] {1,2,3,4,5,6,7,8,9,10};
     }
 
 }
