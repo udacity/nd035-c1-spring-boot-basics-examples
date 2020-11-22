@@ -23,10 +23,20 @@
             Say
         </option>
     </select>
+    <label for="messageVolume">Message Volume: </label>
+    <select id="messageVolume" th:field="*{messageVolume}">
+        <option
+                th:each="type : ${allMessageVolumes}"
+                th:value="${type}"
+                th:text="${type}"
+        >
+            Say
+        </option>
+    </select>
     <input type="submit">
 </form>
 <div th:each="chatMessage : ${chatMessages}">
-    <span th:text="${chatMessage.username}">Username</span>: <span th:text="${chatMessage.message}">Hello, world!</span>
+    <span th:text="${chatMessage.username}">Username</span> <span th:text="${chatMessage.mood}">mood</span> says: <span th:text="${chatMessage.message}">Hello, world!</span>
 </div>
 </body>
 </html>

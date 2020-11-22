@@ -4,6 +4,15 @@ public class ChatForm {
     private String username;
     private String messageText;
     private String messageType;
+    private int messageVolume;
+
+    public void setMessageVolume(int messageVolume) {
+        this.messageVolume = messageVolume;
+    }
+
+    public int getMessageVolume() {
+        return messageVolume;
+    }
 
     public String getUsername() {
         return username;
