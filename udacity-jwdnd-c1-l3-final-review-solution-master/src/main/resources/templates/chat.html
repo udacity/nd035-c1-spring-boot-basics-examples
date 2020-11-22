@@ -9,8 +9,6 @@
 </head>
 <body>
 <form th:object="${chatForm}" action="#" th:action="@{/chat}" method="POST">
-    <label for="username">Username:</label>
-    <input id="username" type="text" th:field="*{username}">
     <label for="messageText">Message Text:</label>
     <input id="messageText" type="text" th:field="*{messageText}">
     <label for="messageType">Message Type: </label>
@@ -36,7 +34,11 @@
     <input type="submit">
 </form>
 <div th:each="chatMessage : ${chatMessages}">
-    <span th:text="${chatMessage.username}">Username</span> <span th:text="${chatMessage.mood}">mood</span> says: <span th:text="${chatMessage.message}">Hello, world!</span>
+    MessageId <span th:text="${chatMessage.messageId}">messageId</span>: <span th:text="${chatMessage.username}">Username</span> <span th:text="${chatMessage.mood}">mood</span> says "<span th:text="${chatMessage.messageText}">Hello, world!</span>"
+</div>
+
+<div th:each="moodCount : ${moodCounts}">
+    count of <span th:text="${moodCount.mood}">mood</span> is <span th:text="${moodCount.count}">count</span>
 </div>
 </body>
 </html>
