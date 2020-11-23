@@ -16,7 +16,7 @@ public interface MessageMapper {
     @Options(useGeneratedKeys = true, keyProperty = "messageId")
     int addMessage(ChatMessage chatMessage);
 
-    @Select("SELECT COUNT(MESSAGEID), MOOD FROM MESSAGES GROUP BY MOOD")
+    @Select("select count(messageid) as count,mood from messages group by mood")
     List<MoodCount> getAllMoods();
 
 }
