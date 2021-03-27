@@ -25,7 +25,11 @@ public class Example {
     }
 
     public int div(int a, int b) {
-        return a / b;
+        if (b == 0) {
+            throw new ArithmeticException("Cannot divide by 0!");
+        } else {
+            return a / b;
+        }
     }
 
     public int getCount() {
