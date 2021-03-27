@@ -25,6 +25,9 @@ public class Example {
     }
 
     public int div(int a, int b) {
+        if (b == 0) {
+            throw new ArithmeticException("Cannot divide by 0!");
+        }
         return a / b;
     }
 
