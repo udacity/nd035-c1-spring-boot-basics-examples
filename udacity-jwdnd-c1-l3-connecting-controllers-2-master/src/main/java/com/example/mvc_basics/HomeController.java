@@ -18,12 +18,6 @@ public class HomeController {
         this.messageListService = messageListService;
     }
 
-    @GetMapping("/home")
-    public String getHomePage(@ModelAttribute("newMessage") MessageForm newMessage, Model model) {
-        model.addAttribute("greetings", this.messageListService.getMessages());
-        return "home";
-    }
-
     @PostMapping("/home")
     public String addMessage(@ModelAttribute("newMessage") MessageForm messageForm, Model model) {
         messageListService.addMessage(messageForm.getText());
@@ -31,5 +25,10 @@ public class HomeController {
         messageForm.setText("");
         return "home";
     }
-
+    
+    @GetMapping("/home")
+    public String getHomePage(@ModelAttribute("newMessage") MessageForm newMessage, Model model) {
+        model.addAttribute("greetings", this.messageListService.getMessages());
+        return "home";
+    }
 }
