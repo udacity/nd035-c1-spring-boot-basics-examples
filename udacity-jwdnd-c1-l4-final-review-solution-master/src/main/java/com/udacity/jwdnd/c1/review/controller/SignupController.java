@@ -7,10 +7,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller()
-@RequestMapping("/signup")
 public class SignupController {
 
     private final UserService userService;
@@ -19,12 +17,12 @@ public class SignupController {
         this.userService = userService;
     }
 
-    @GetMapping()
+    @GetMapping("/signup")
     public String signupView() {
         return "signup";
     }
 
-    @PostMapping()
+    @PostMapping("/signup")
     public String signupUser(@ModelAttribute User user, Model model) {
         String signupError = null;
 
