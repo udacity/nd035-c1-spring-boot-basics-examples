@@ -5,6 +5,7 @@ import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Options;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.SelectKey;
 
 @Mapper
 public interface UserMapper {
@@ -12,6 +13,7 @@ public interface UserMapper {
     User getUser(String username);
 
     @Insert("INSERT INTO USERS (username, salt, password, firstname, lastname) VALUES(#{username}, #{salt}, #{password}, #{firstName}, #{lastName})")
-    @Options(useGeneratedKeys = true, keyProperty = "userId")
+    @SelectKey(statement="SELECT users_userid_seq.last_value from users_userid_seq", keyProperty = "userid", before = false, resultType = Integer.class)
+    @Options(useGeneratedKeys = true, keyProperty = "userid")
     int insert(User user);
 }
