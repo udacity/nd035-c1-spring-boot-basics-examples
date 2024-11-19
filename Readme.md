@@ -40,14 +40,7 @@ Below is the mapping of folders in the current repository versus the classroom p
 
 
 ### Dependencies
-1. IntelliJ IDEA as the preferred IDE. 
-2. Java 14 or higher - The current Java version in the `pom.xml` file is 14. However, you can upgrade to Java 15, as the soruce code does not uses any deprecated libraries/functions. If you have already downloaded the Java 15 in your system, follow the steps mentioned below:
- * Update the Java version in the `pom.xml` file. It will automatically update the `maven-compiler-plugin`. 
- ![alt text]( https://github.com/udacity/nd035-c1-spring-boot-basics-examples/blob/master/images/pom.png?raw=true)
-
- * Update the Java version in IntelliJ IDEA &#8594; File &#8594; Project Structure...
-  ![alt text]( https://github.com/udacity/nd035-c1-spring-boot-basics-examples/blob/master/images/Project_Structure.png?Pro=true)
-
- * Update the Java version in the IntelliJ IDEA &#8594; Preferences...
- ![alt text]( https://github.com/udacity/nd035-c1-spring-boot-basics-examples/blob/master/images/Preferences.png?raw=true)
+1. Visual Studio Code as the preferred IDE. 
+2. Java 21 - The current Java version in the `pom.xml` file is 21.
+3. PostgresSQL DB.
 
