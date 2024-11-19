@@ -1,5 +1,5 @@
 CREATE TABLE IF NOT EXISTS USERS (
-  userid INT PRIMARY KEY auto_increment,
+  userid serial PRIMARY KEY,
   username VARCHAR(20),
   salt VARCHAR,
   password VARCHAR,
@@ -8,7 +8,7 @@ CREATE TABLE IF NOT EXISTS USERS (
 );
 
 CREATE TABLE IF NOT EXISTS MESSAGES (
-  messageid INT PRIMARY KEY auto_increment,
+  messageid serial PRIMARY KEY,
   username VARCHAR NOT NULL,
   messagetext VARCHAR NOT NULL
 );
