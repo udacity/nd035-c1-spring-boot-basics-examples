@@ -1,48 +1,38 @@
 package com.udacity.jwdnd.spring_security_basics.config;
 
-import com.udacity.jwdnd.spring_security_basics.mapper.UserMapper;
-import com.udacity.jwdnd.spring_security_basics.service.AuthenticationService;
-import com.udacity.jwdnd.spring_security_basics.service.HashService;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.authentication.AuthenticationProvider;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.AuthenticationException;
+import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
+import org.springframework.security.web.SecurityFilterChain;
 
-import java.util.ArrayList;
+import com.udacity.jwdnd.spring_security_basics.service.AuthenticationService;
 
 @Configuration
 @EnableWebSecurity
-public class SecurityConfig extends WebSecurityConfigurerAdapter {
-
-    private AuthenticationService authenticationService;
+public class SecurityConfig {
+    
+    private final AuthenticationService authenticationService;
 
     public SecurityConfig(AuthenticationService authenticationService) {
         this.authenticationService = authenticationService;
     }
 
-    @Override
-    protected void configure(AuthenticationManagerBuilder auth) {
-        auth.authenticationProvider(this.authenticationService);
+    @Bean
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+    return http
+            .csrf(AbstractHttpConfigurer::disable)
+            .formLogin(httpForm ->{
+                httpForm.loginPage("/login").permitAll();
+                httpForm.defaultSuccessUrl("/home");
+                
+            })            
+            .authorizeHttpRequests(registry ->{
+                registry.requestMatchers("/signup","/css/**","/js/**").permitAll();
+                registry.anyRequest().authenticated();
+            })
+            .authenticationProvider(authenticationService)
+            .build();
     }
-
-    @Override
-    protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests()
-                .antMatchers("/signup", "/css/**", "/js/**").permitAll()
-                .anyRequest().authenticated();
-
-        http.formLogin()
-                .loginPage("/login")
-                .permitAll();
-
-        http.formLogin()
-                .defaultSuccessUrl("/home", true);
-    }
-
-
 }
