@@ -1,5 +1,5 @@
 CREATE TABLE IF NOT EXISTS USERS (
-  userid INT PRIMARY KEY auto_increment,
+  userid serial PRIMARY KEY,
   username VARCHAR(20),
   salt VARCHAR,
   password VARCHAR,
